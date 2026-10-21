@@ -17,7 +17,7 @@
     const setOpen = (open) => {
       nav.classList.toggle('is-open', open);
       toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      toggle.setAttribute('aria-label', open ? (toggle.dataset.labelClose || 'Close menu') : (toggle.dataset.labelOpen || 'Open menu'));
       icon.classList.toggle('ph-list', !open);
       icon.classList.toggle('ph-x', open);
     };
@@ -77,7 +77,7 @@
     const sync = () => {
       if (!button) return;
       const playing = !video.paused;
-      button.setAttribute('aria-label', playing ? 'Pause video' : 'Play video');
+      button.setAttribute('aria-label', playing ? (button.dataset.labelPause || 'Pause video') : (button.dataset.labelPlay || 'Play video'));
       icon.classList.toggle('ph-pause', playing);
       icon.classList.toggle('ph-play', !playing);
     };
