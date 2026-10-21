@@ -453,7 +453,10 @@ abbr { text-decoration: none; }
 .tile-half .tile-title { font-size: 40px; line-height: 1.1; }
 .tile-half .tile-media {
   aspect-ratio: 16 / 10;
-  margin: 0 32px 32px;
+  /* margin-top: auto drops the media to the foot of the tile. Without it, a
+     shorter blurb leaves a bare strip under the image while the neighbouring
+     tile runs flush, which reads as a broken card on desktop. */
+  margin: auto 32px 32px;
   border-radius: 18px;
   background: #fefefe;
 }
@@ -462,7 +465,7 @@ abbr { text-decoration: none; }
 /* Full-bleed renders run edge to edge at the foot of a half tile. */
 .tile-half .media-bleed {
   aspect-ratio: 16 / 9;
-  margin: 0;
+  margin: auto 0 0;
   border-radius: 0;
   background: none;
 }
@@ -960,4 +963,87 @@ html[lang="zh-CN"] .hero-sub { text-wrap: balance; }
 @media (max-width: 734px) {
   html[lang="zh-CN"] .hero-title { font-size: 44px; }
   html[lang="zh-CN"] .news-card p { line-height: 1.45; }
+}
+
+/* Procedura wordmark.
+   The word stays real text (selectable, copyable, found by search and read by
+   screen readers) but is painted transparent. The official wordmark is an
+   inline-block drawn in the same line, so it sits on the text baseline in any
+   font and the line grows to make room for its tall "d". The wordmark's own
+   baseline is 94% of the way down the image, hence the 6% drop below it. */
+.procedura {
+  --wm-h: 1.28em;
+  --wm-w: calc(var(--wm-h) * 4.351);
+  display: inline-block;
+  width: var(--wm-w);
+  white-space: nowrap;
+  vertical-align: baseline;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-style: normal;
+  letter-spacing: .06em;
+  text-align: left;
+  text-decoration: none;
+}
+.procedura::before {
+  content: "";
+  display: inline-block;
+  width: var(--wm-w);
+  height: var(--wm-h);
+  margin-right: calc(-1 * var(--wm-w));
+  margin-bottom: calc(-.06 * var(--wm-h));
+  vertical-align: baseline;
+  background: url("../media/procedura-wordmark.webp") center / 100% 100% no-repeat;
+}
+.procedura::selection { color: transparent; -webkit-text-fill-color: transparent; background: rgb(0 113 227 / .28); }
+.nobr { white-space: nowrap; }
+
+/* Print and forced colors (Windows high contrast) fall back to plain text. */
+@media print {
+  .procedura { width: auto; color: inherit; -webkit-text-fill-color: currentColor; letter-spacing: inherit; }
+  .procedura::before { display: none; }
+}
+@media (forced-colors: active) {
+  .procedura { width: auto; color: CanvasText; -webkit-text-fill-color: CanvasText; letter-spacing: inherit; }
+  .procedura::before { display: none; }
+}
+
+/* Project names carry the same brand gradients their project pages use:
+   Direct3D-S2 is indigo to sky, SpatialVID is blue to teal. Only headings
+   get the gradient; inline mentions in body copy stay plain link text. */
+.grad-d3s2,
+.grad-svid {
+  background-image: linear-gradient(90deg, #575fe9, #5db8f0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.grad-svid { background-image: linear-gradient(135deg, #5e96db, #00c0c6); }
+@media (prefers-color-scheme: dark) {
+  .grad-d3s2 { background-image: linear-gradient(90deg, #8b92ff, #7fcdfb); }
+  .grad-svid { background-image: linear-gradient(135deg, #7ab0ee, #2ad4da); }
+}
+@media print {
+  .grad-d3s2,
+  .grad-svid { background-image: none; color: inherit; -webkit-text-fill-color: currentColor; }
+}
+@media (forced-colors: active) {
+  .grad-d3s2,
+  .grad-svid { background-image: none; color: CanvasText; -webkit-text-fill-color: CanvasText; }
+}
+
+/* SpatialVID's cube mark, the companion to Procedura's wordmark. Sized off the
+   text so it tracks the heading at every breakpoint, and kept out of the
+   accessible name because the word beside it already says the name. */
+.svid-mark {
+  display: inline-block;
+  width: .82em;
+  height: .82em;
+  margin-right: .34em;
+  vertical-align: -.1em;
+  background: url("../media/spatialvid-mark.webp") center / contain no-repeat;
+}
+@media print, (forced-colors: active) {
+  .svid-mark { display: none; }
 }
