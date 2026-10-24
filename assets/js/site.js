@@ -109,6 +109,118 @@
     }, { threshold: 0.35 }).observe(video);
   });
 
+  /* Demo reels: each clip plays once, then the reel rolls on to the next,
+     reversing at either end. Paused off screen and under reduced motion. */
+  document.querySelectorAll('[data-reel]').forEach((reel) => {
+    const track = reel.querySelector('.reel-track');
+    const slides = [...track.children];
+    const videos = slides.map((slide) => slide.querySelector('video'));
+    const dotsWrap = reel.querySelector('.reel-dots');
+    const button = reel.querySelector('[data-video-toggle]');
+    const icon = button.querySelector('.ph');
+    const label = reel.dataset.reelLabel || 'Example %1 of %2';
+    let index = 0;
+    let dir = 1;
+    let userPaused = reduceMotion.matches;
+    let onScreen = false;
+    let frame = 0;
+
+    const current = () => videos[index];
+    const sync = () => {
+      const playing = !current().paused;
+      button.setAttribute('aria-label', playing ? (button.dataset.labelPause || 'Pause video') : (button.dataset.labelPlay || 'Play video'));
+      icon.classList.toggle('ph-pause', playing);
+      icon.classList.toggle('ph-play', !playing);
+    };
+    const play = () => {
+      const p = current().play();
+      if (p && p.catch) p.catch(() => sync());
+    };
+    const progress = () => {
+      const video = current();
+      dots[index].style.setProperty('--p', video.duration ? video.currentTime / video.duration : 0);
+      frame = video.paused ? 0 : requestAnimationFrame(progress);
+    };
+
+    const show = (next) => {
+      if (next !== index) {
+        current().pause();
+        dots[index].style.setProperty('--p', 0);
+        index = next;
+        current().currentTime = 0;
+      }
+      track.style.transform = `translateX(${-100 * index}%)`;
+      slides.forEach((slide, i) => { slide.inert = i !== index; });
+      dots.forEach((dot, i) => {
+        if (i === index) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+      if (onScreen && !userPaused) play();
+      else sync();
+    };
+    const advance = () => {
+      if (!videos[index + dir]) dir = -dir;
+      show(index + dir);
+    };
+
+    const dots = videos.map((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', label.replace('%1', i + 1).replace('%2', videos.length));
+      dot.append(document.createElement('span'));
+      dot.addEventListener('click', () => show(i));
+      dotsWrap.append(dot);
+      return dot;
+    });
+
+    videos.forEach((video, i) => {
+      video.addEventListener('ended', () => { if (i === index) advance(); });
+      video.addEventListener('play', () => {
+        if (i !== index) return;
+        sync();
+        cancelAnimationFrame(frame);
+        progress();
+      });
+      video.addEventListener('pause', () => { if (i === index) sync(); });
+      // Fetch the next clip once this one is buffered, so the roll lands on a playing video.
+      video.addEventListener('canplaythrough', () => {
+        const next = videos[i + dir] || videos[i - dir];
+        if (i === index && next && next.preload === 'none') next.preload = 'auto';
+      });
+    });
+
+    button.addEventListener('click', () => {
+      if (current().paused) {
+        userPaused = false;
+        play();
+      } else {
+        userPaused = true;
+        current().pause();
+      }
+    });
+
+    let startX = null;
+    track.addEventListener('pointerdown', (e) => { startX = e.clientX; });
+    track.addEventListener('pointercancel', () => { startX = null; });
+    track.addEventListener('pointerup', (e) => {
+      if (startX === null) return;
+      const dx = e.clientX - startX;
+      startX = null;
+      const next = index + (dx < 0 ? 1 : -1);
+      if (Math.abs(dx) < 40 || !videos[next]) return;
+      dir = dx < 0 ? 1 : -1;
+      show(next);
+    });
+
+    new IntersectionObserver(([entry]) => {
+      onScreen = entry.isIntersecting;
+      if (onScreen && !userPaused) play();
+      else if (!onScreen && !current().paused) current().pause();
+    }, { threshold: 0.35 }).observe(reel);
+
+    show(0);
+  });
+
   /* News shelf arrows */
   document.querySelectorAll('[data-shelf-nav]').forEach((controls) => {
     const shelf = document.getElementById(controls.dataset.shelfNav);

@@ -20,7 +20,7 @@
   <meta property="og:title" content="Youtian Lin">
   <meta property="og:description" content="3D generation, reconstruction, and agentic 3D modeling. Ph.D. student at Nanjing University.">
   <meta property="og:url" content="https://linyou.github.io/">
-  <meta property="og:image" content="https://linyou.github.io/assets/media/procedura-1200.webp">
+  <meta property="og:image" content="https://linyou.github.io/assets/media/procedura-teaser-1280.webp">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@linyoutian2">
 
@@ -44,10 +44,10 @@
   </script>
 
   <script>document.documentElement.classList.add('js')</script>
-  <link rel="preload" as="image" href="assets/media/procedura-2400.webp" imagesrcset="assets/media/procedura-1200.webp 1200w, assets/media/procedura-2400.webp 2400w" imagesizes="(min-width: 1320px) 1280px, 100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/media/procedura-teaser-2560.webp" imagesrcset="assets/media/procedura-teaser-1280.webp 1280w, assets/media/procedura-teaser-2560.webp 2560w" imagesizes="(min-width: 1320px) 1280px, 100vw" fetchpriority="high">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
-  <link rel="stylesheet" href="assets/css/site.css">
-  <script src="assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="assets/css/site.css?v=20261025">
+  <script src="assets/js/site.js?v=20261025" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -57,6 +57,8 @@
       <a class="nav-name" href="#top">Youtian Lin</a>
       <ul class="nav-links" id="nav-links">
         <li><a href="#research">Research</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#demos">Demos</a></li>
         <li><a href="#news">News</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#about">About</a></li>
@@ -88,11 +90,11 @@
       </div>
       <figure class="hero-stage">
         <div class="hero-media">
-          <img src="assets/media/procedura-2400.webp"
-               srcset="assets/media/procedura-1200.webp 1200w, assets/media/procedura-2400.webp 2400w"
+          <img src="assets/media/procedura-teaser-2560.webp"
+               srcset="assets/media/procedura-teaser-1280.webp 1280w, assets/media/procedura-teaser-2560.webp 2560w"
                sizes="(min-width: 1320px) 1280px, 100vw"
-               width="2400" height="938" fetchpriority="high" decoding="async"
-               alt="Machines Procedura wrote as editable programs: walking robots, a rover, an off-road buggy, an excavator, a motorcycle, a biplane, a robot arm, and an engine. The right half is colored by named part.">
+               width="2560" height="1436" fetchpriority="high" decoding="async"
+               alt="Machines Procedura wrote as editable programs: walking robots, a rover, an off-road buggy, an excavator, a motorcycle, a biplane, a robot arm, and an engine, the right half colored by named part. Below, six objects rendered with the materials Procedura assigns to each part: a buggy, a biplane, a diving suit, a tripod turret, a robot, and an orange industrial arm.">
         </div>
         <figcaption class="wrap hero-caption">
           <p><span class="nobr"><strong><span class="procedura">Procedura</span></strong>,</span> 2026. Agentic 3D modeling with procedural control.</p>
@@ -219,6 +221,158 @@
             </div>
             <div class="tile-media media-bleed">
               <img src="assets/media/miku-1400.webp" width="1400" height="709" loading="lazy" decoding="async" alt="A sunlit room assembled from generated 3D assets, including figurines, a bust, a wall clock, an axe, and an armored boar warrior, all textured with generated PBR materials.">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products shipped from research -->
+    <section id="products" class="section" aria-labelledby="products-title">
+      <div class="wrap">
+        <h2 id="products-title" class="section-title" data-reveal>Products. <span>Research that shipped.</span></h2>
+        <ul class="products">
+          <li data-reveal>
+            <a class="product" href="https://developer.huawei.com/consumer/cn/forum/topic/0203225018702268192" target="_blank" rel="noopener">
+              <img class="product-logo" src="assets/media/logo-harmonyos.webp" width="160" height="160" loading="lazy" decoding="async" alt="">
+              <span class="product-org">Huawei · HarmonyOS 7</span>
+              <span class="product-name">Spatial Recon Kit</span>
+              <span class="product-desc">On-device 3D Gaussian Splatting: capture a scene on a phone and reconstruct it in minutes. I built the on-device training and rendering platform.</span>
+              <span class="link-more">Learn more<i class="ph ph-caret-right" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li data-reveal>
+            <a class="product" href="https://www.neural4d.com" target="_blank" rel="noopener">
+              <img class="product-logo" src="assets/media/logo-neural4d.webp" width="160" height="160" loading="lazy" decoding="async" alt="">
+              <span class="product-org">DreamTech</span>
+              <span class="product-name">Neural4D</span>
+              <span class="product-desc">Production-ready 3D assets from text and images. I worked on its geometry and texture generation and the cloud pipeline behind it.</span>
+              <span class="link-more">Learn more<i class="ph ph-caret-right" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li data-reveal>
+            <a class="product" href="https://www.meshy.ai" target="_blank" rel="noopener">
+              <img class="product-logo" src="assets/media/logo-meshy.webp" width="160" height="160" loading="lazy" decoding="async" alt="">
+              <span class="product-org">Taichi Graphics</span>
+              <span class="product-name">Meshy AI</span>
+              <span class="product-desc">AI 3D model generation from text and images. I built its fast texture generation and worked on 3D geometry generation.</span>
+              <span class="link-more">Learn more<i class="ph ph-caret-right" aria-hidden="true"></i></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Demos: interactive prototypes, shown as video -->
+    <section id="demos" class="section section-alt" aria-labelledby="demos-title">
+      <div class="wrap">
+        <h2 id="demos-title" class="section-title" data-reveal>Demos. <span>Prototypes I built, running live.</span></h2>
+
+        <div class="bento">
+          <article class="tile tile-dark tile-split" data-reveal>
+            <div class="tile-copy">
+              <p class="tile-meta">Apple · 2026</p>
+              <h3 class="tile-title">Multiview video diffusion</h3>
+              <p class="tile-sub">From a single video, generate it from many camera angles. Drag on an iPad to change the viewpoint while it plays.</p>
+            </div>
+            <div class="tile-media media-169 reel" data-reel data-reel-label="Example %1 of %2">
+              <div class="reel-track">
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-multiview-ipad-poster.webp" width="1280" height="720" aria-label="A hand drags across an iPad playing a film scene, and the camera viewpoint swings around the actor as the scene keeps playing.">
+                    <source src="assets/media/demo-multiview-ipad.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-ipad-lalaland-poster.webp" width="1280" height="720" aria-label="Two dancers on a hilltop at dusk, the camera arcing around them as the slider on the iPad moves.">
+                    <source src="assets/media/demo-mv-ipad-lalaland.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-ipad-joker-poster.webp" width="1280" height="720" aria-label="A man in a red suit dancing down a long outdoor stairway, seen from a viewpoint that sweeps left and right.">
+                    <source src="assets/media/demo-mv-ipad-joker.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-ipad-friends-poster.webp" width="1280" height="720" aria-label="Two people talking in a kitchen, with the camera swinging from behind one of them to a side view of the other.">
+                    <source src="assets/media/demo-mv-ipad-friends.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-ipad-grandpa-poster.webp" width="1280" height="720" aria-label="An older man explaining something to a boy at a table, the camera moving between over-the-shoulder views.">
+                    <source src="assets/media/demo-mv-ipad-grandpa.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="reel-dots"></div>
+              <button class="video-toggle" type="button" aria-label="Pause video" data-video-toggle><i class="ph ph-pause" aria-hidden="true"></i></button>
+            </div>
+          </article>
+
+          <article class="tile tile-half tile-demo" data-reveal>
+            <div class="tile-copy">
+              <p class="tile-meta">Apple · 2026</p>
+              <h3 class="tile-title">Streaming reframing</h3>
+              <p class="tile-sub">Change the camera on a live video stream. A four-step causal model runs on any video in the browser.</p>
+            </div>
+            <div class="tile-media media-169 reel" data-reel data-reel-label="Example %1 of %2">
+              <div class="reel-track">
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-streaming-reframe-poster.webp" width="1280" height="720" aria-label="A YouTube interview playing in a browser while the camera is dragged to orbit and reframe the two speakers in real time.">
+                    <source src="assets/media/demo-streaming-reframe.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-stream-dario-poster.webp" width="1280" height="720" aria-label="A televised interview reframed live in the browser, the camera drifting around a man in glasses as he speaks.">
+                    <source src="assets/media/demo-stream-dario.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-stream-jensen-poster.webp" width="1280" height="720" aria-label="A podcast interview reframed live, the camera orbiting a man in a leather jacket seated at a microphone.">
+                    <source src="assets/media/demo-stream-jensen.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-stream-atlas-poster.webp" width="1280" height="720" aria-label="A four-person product livestream reframed live, the camera sliding across the group seated on a sofa.">
+                    <source src="assets/media/demo-stream-atlas.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="reel-dots"></div>
+              <button class="video-toggle" type="button" aria-label="Pause video" data-video-toggle><i class="ph ph-pause" aria-hidden="true"></i></button>
+            </div>
+          </article>
+
+          <article class="tile tile-half tile-demo" data-reveal>
+            <div class="tile-copy">
+              <p class="tile-meta">Apple · 2026</p>
+              <h3 class="tile-title">Multiview on Vision Pro</h3>
+              <p class="tile-sub">The same multiview videos, viewed in stereo on Apple Vision Pro as a window you can look around.</p>
+            </div>
+            <div class="tile-media media-169 reel" data-reel data-reel-label="Example %1 of %2">
+              <div class="reel-track">
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-multiview-visionpro-poster.webp" width="1280" height="720" aria-label="A film scene floating as a window in a desert landscape on Apple Vision Pro, its viewpoint shifting as a hand gestures.">
+                    <source src="assets/media/demo-multiview-visionpro.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-vp-joker-poster.webp" width="1280" height="720" aria-label="On Apple Vision Pro, a stairway dance scene floats over a desert, its viewpoint turning as the viewer gestures.">
+                    <source src="assets/media/demo-mv-vp-joker.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-vp-karate-poster.webp" width="1280" height="720" aria-label="On Apple Vision Pro, a karate student in a dojo floats as a window, the scene turning to show the room in depth.">
+                    <source src="assets/media/demo-mv-vp-karate.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-vp-gym-poster.webp" width="1280" height="720" aria-label="On Apple Vision Pro, a gym scene floats above a desert under a wide sky, viewed from shifting angles.">
+                    <source src="assets/media/demo-mv-vp-gym.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="reel-dots"></div>
+              <button class="video-toggle" type="button" aria-label="Pause video" data-video-toggle><i class="ph ph-pause" aria-hidden="true"></i></button>
             </div>
           </article>
         </div>

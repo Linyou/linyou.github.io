@@ -226,6 +226,11 @@ abbr { text-decoration: none; }
   place-items: center;
 }
 
+/* Eight links need tighter spacing before the menu collapses */
+@media (max-width: 1068px) {
+  .nav-links { gap: 18px; }
+}
+
 @media (max-width: 833px) {
   .nav-toggle { display: inline-grid; }
   .nav-links {
@@ -763,6 +768,123 @@ html:not(.js) .segmented { display: none; }
 .timeline b { font-size: 19px; line-height: 1.3158; font-weight: 600; letter-spacing: .012em; }
 .timeline li > span:last-child { color: var(--text-2); }
 
+/* Products: one card per shipped product, led by its app icon */
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  padding: 36px 32px 32px;
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: var(--card-shadow);
+  color: var(--text);
+  transition: box-shadow .3s var(--ease), transform .3s var(--ease);
+}
+.product:hover { text-decoration: none; box-shadow: var(--card-shadow-hover); transform: scale(1.012); }
+.product-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 17px;
+  box-shadow: 0 0 0 1px rgb(29 29 31 / .06), 0 6px 18px rgb(29 29 31 / .1);
+}
+.product-org {
+  margin-top: 28px;
+  font-size: 14px;
+  line-height: 1.43;
+  font-weight: 600;
+  letter-spacing: -.016em;
+  color: var(--text-2);
+}
+.product-name {
+  margin-top: 4px;
+  font-size: 28px;
+  line-height: 1.143;
+  font-weight: 600;
+  letter-spacing: .007em;
+}
+.product-desc {
+  margin-top: 12px;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 1.47;
+  letter-spacing: -.022em;
+  color: var(--text-2);
+}
+/* Pinned to the foot so the links line up across cards of different length. */
+.product .link-more { margin-top: auto; font-size: 17px; color: var(--link); }
+.product:hover .link-more .ph { transform: translate(2px, .04em); }
+
+/* Demo half tiles carry 16:9 video edge to edge instead of a matted image. */
+.tile-half.tile-demo .tile-media {
+  aspect-ratio: 16 / 9;
+  margin: auto 0 0;
+  border-radius: 0;
+  background: #000;
+}
+
+/* Demo reels: several clips per card, played in turn, rolling forward to the
+   last one and back again. Without JS only the first clip shows. */
+.reel { touch-action: pan-y; }
+.reel-track { display: flex; height: 100%; }
+.reel-slide { flex: 0 0 100%; height: 100%; }
+.reel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding-inline: 6px;
+  border-radius: 18px;
+  background: var(--control-bg);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transform: translateX(-50%);
+}
+html:not(.js) .reel-dots { display: none; }
+.reel-dots button {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.reel-dots span {
+  position: relative;
+  overflow: hidden;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--control-fg) 32%, transparent);
+}
+.reel-dots button:hover span { background: color-mix(in srgb, var(--control-fg) 55%, transparent); }
+/* The current dot stretches into a bar that fills as its clip plays. */
+.reel-dots [aria-current="true"] { width: 40px; }
+.reel-dots [aria-current="true"] span { width: 28px; }
+.reel-dots span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--control-fg);
+  transform: scaleX(var(--p, 0));
+  transform-origin: left;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reel-track { transition: transform .8s var(--ease); }
+  .reel-dots button,
+  .reel-dots span { transition: width .5s var(--ease), background-color .2s ease; }
+}
+
 /* Open source: home-screen style icons, no cards */
 .apps {
   display: grid;
@@ -872,6 +994,11 @@ html:not(.js) .segmented { display: none; }
   .about { gap: 48px; }
   .acronyms li { font-size: 32px; }
   .apps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .products { grid-template-columns: 1fr; gap: 16px; }
+  .product { display: grid; grid-template-columns: 72px minmax(0, 1fr); column-gap: 24px; padding: 32px; }
+  .product-logo { grid-row: 1 / span 4; }
+  .product-org { margin-top: 0; }
+  .product .link-more { margin-top: 0; }
 }
 
 /* Phone */
@@ -919,6 +1046,11 @@ html:not(.js) .segmented { display: none; }
   .timeline { grid-template-columns: 1fr; gap: 48px; margin-top: 64px; padding-top: 40px; }
 
   .apps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 16px; }
+  .product { grid-template-columns: 56px minmax(0, 1fr); column-gap: 16px; padding: 24px 20px; border-radius: 18px; }
+  .product-logo { width: 56px; height: 56px; border-radius: 13px; }
+  .product-name { font-size: 24px; line-height: 1.167; }
+  .product-desc { font-size: 15px; line-height: 1.47; margin-bottom: 14px; }
+  .product .link-more { font-size: 15px; }
   .app-icon { width: 88px; height: 88px; border-radius: 20px; }
 
   .service-group { grid-template-columns: 1fr; gap: 16px; padding-block: 28px; }
@@ -938,6 +1070,7 @@ html[lang="zh-CN"] .news-card p,
 html[lang="zh-CN"] .pub-title,
 html[lang="zh-CN"] .timeline b,
 html[lang="zh-CN"] .app-name,
+html[lang="zh-CN"] .product-name,
 html[lang="zh-CN"] .service-label,
 html[lang="zh-CN"] .timeline-title,
 html[lang="zh-CN"] .acronyms li { letter-spacing: .01em; }
@@ -948,6 +1081,8 @@ html[lang="zh-CN"] .news-card time,
 html[lang="zh-CN"] .tile-meta,
 html[lang="zh-CN"] .pub-venue,
 html[lang="zh-CN"] .app-desc,
+html[lang="zh-CN"] .product-org,
+html[lang="zh-CN"] .product-desc,
 html[lang="zh-CN"] .pills li,
 html[lang="zh-CN"] .footer,
 html[lang="zh-CN"] .timeline li > span:last-child { letter-spacing: 0; }
@@ -958,6 +1093,7 @@ html[lang="zh-CN"] .news-card p { line-height: 1.4; }
 html[lang="zh-CN"] .pub-title { line-height: 1.5; }
 html[lang="zh-CN"] .hero-sub { line-height: 1.5; }
 html[lang="zh-CN"] .tile-sub { line-height: 1.6; }
+html[lang="zh-CN"] .product-desc { line-height: 1.65; }
 html[lang="zh-CN"] .hero-title,
 html[lang="zh-CN"] .hero-sub { text-wrap: balance; }
 @media (max-width: 734px) {

@@ -20,7 +20,7 @@
   <meta property="og:title" content="林尤添 | Youtian Lin">
   <meta property="og:description" content="三维生成、重建与基于智能体的三维建模。南京大学博士生。">
   <meta property="og:url" content="https://linyou.github.io/zh.html">
-  <meta property="og:image" content="https://linyou.github.io/assets/media/procedura-1200.webp">
+  <meta property="og:image" content="https://linyou.github.io/assets/media/procedura-teaser-1280.webp">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@linyoutian2">
 
@@ -44,10 +44,10 @@
   </script>
 
   <script>document.documentElement.classList.add('js')</script>
-  <link rel="preload" as="image" href="assets/media/procedura-2400.webp" imagesrcset="assets/media/procedura-1200.webp 1200w, assets/media/procedura-2400.webp 2400w" imagesizes="(min-width: 1320px) 1280px, 100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/media/procedura-teaser-2560.webp" imagesrcset="assets/media/procedura-teaser-1280.webp 1280w, assets/media/procedura-teaser-2560.webp 2560w" imagesizes="(min-width: 1320px) 1280px, 100vw" fetchpriority="high">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
-  <link rel="stylesheet" href="assets/css/site.css">
-  <script src="assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="assets/css/site.css?v=20261025">
+  <script src="assets/js/site.js?v=20261025" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到正文</a>
@@ -57,6 +57,8 @@
       <a class="nav-name" href="#top">林尤添</a>
       <ul class="nav-links" id="nav-links">
         <li><a href="#research">研究</a></li>
+        <li><a href="#products">产品</a></li>
+        <li><a href="#demos">演示</a></li>
         <li><a href="#news">动态</a></li>
         <li><a href="#publications">论文</a></li>
         <li><a href="#about">关于</a></li>
@@ -88,11 +90,11 @@
       </div>
       <figure class="hero-stage">
         <div class="hero-media">
-          <img src="assets/media/procedura-2400.webp"
-               srcset="assets/media/procedura-1200.webp 1200w, assets/media/procedura-2400.webp 2400w"
+          <img src="assets/media/procedura-teaser-2560.webp"
+               srcset="assets/media/procedura-teaser-1280.webp 1280w, assets/media/procedura-teaser-2560.webp 2560w"
                sizes="(min-width: 1320px) 1280px, 100vw"
-               width="2400" height="938" fetchpriority="high" decoding="async"
-               alt="Procedura 以可编辑程序方式写出的机械模型：步行机器人、月球车、越野车、挖掘机、摩托车、双翼机、机械臂与发动机。画面右半部分按命名部件着色。">
+               width="2560" height="1436" fetchpriority="high" decoding="async"
+               alt="Procedura 以可编辑程序方式写出的机械模型：步行机器人、月球车、越野车、挖掘机、摩托车、双翼机、机械臂与发动机。画面右半部分按命名部件着色。下方是 Procedura 为每个部件赋予材质后的六个物体：越野车、双翼机、潜水服、三脚炮塔、机器人与橙色工业机械臂。">
         </div>
         <figcaption class="wrap hero-caption">
           <p><span class="nobr"><strong><span class="procedura">Procedura</span></strong>，</span>2026。以程序化控制实现的智能体三维建模。</p>
@@ -219,6 +221,158 @@
             </div>
             <div class="tile-media media-bleed">
               <img src="assets/media/miku-1400.webp" width="1400" height="709" loading="lazy" decoding="async" alt="由生成的三维素材搭成的阳光房间，包括手办、胸像、挂钟、斧头与重甲野猪武士，材质均为生成的 PBR 材质。">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 落地的产品 -->
+    <section id="products" class="section" aria-labelledby="products-title">
+      <div class="wrap">
+        <h2 id="products-title" class="section-title" data-reveal>产品。<span>走出论文的研究。</span></h2>
+        <ul class="products">
+          <li data-reveal>
+            <a class="product" href="https://developer.huawei.com/consumer/cn/forum/topic/0203225018702268192" target="_blank" rel="noopener">
+              <img class="product-logo" src="assets/media/logo-harmonyos.webp" width="160" height="160" loading="lazy" decoding="async" alt="">
+              <span class="product-org">华为 · HarmonyOS 7</span>
+              <span class="product-name">Spatial Recon Kit</span>
+              <span class="product-desc">空间建模服务，在手机端运行三维高斯泼溅：拍下一个场景，几分钟内完成重建。我搭建了端侧训练与渲染平台。</span>
+              <span class="link-more">了解更多<i class="ph ph-caret-right" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li data-reveal>
+            <a class="product" href="https://www.neural4d.com" target="_blank" rel="noopener">
+              <img class="product-logo" src="assets/media/logo-neural4d.webp" width="160" height="160" loading="lazy" decoding="async" alt="">
+              <span class="product-org">DreamTech</span>
+              <span class="product-name">Neural4D</span>
+              <span class="product-desc">由文字和图片生成可直接投入生产的三维素材。我参与了几何与纹理生成，以及背后的云端流程。</span>
+              <span class="link-more">了解更多<i class="ph ph-caret-right" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li data-reveal>
+            <a class="product" href="https://www.meshy.ai" target="_blank" rel="noopener">
+              <img class="product-logo" src="assets/media/logo-meshy.webp" width="160" height="160" loading="lazy" decoding="async" alt="">
+              <span class="product-org">太极图形</span>
+              <span class="product-name">Meshy AI</span>
+              <span class="product-desc">由文字和图片生成三维模型的 AI 工具。我实现了其中的快速纹理生成，并参与了三维几何生成。</span>
+              <span class="link-more">了解更多<i class="ph ph-caret-right" aria-hidden="true"></i></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 演示：交互原型的录屏 -->
+    <section id="demos" class="section section-alt" aria-labelledby="demos-title">
+      <div class="wrap">
+        <h2 id="demos-title" class="section-title" data-reveal>演示。<span>我做的原型，实机运行。</span></h2>
+
+        <div class="bento">
+          <article class="tile tile-dark tile-split" data-reveal>
+            <div class="tile-copy">
+              <p class="tile-meta">Apple · 2026</p>
+              <h3 class="tile-title">多视角视频扩散</h3>
+              <p class="tile-sub">从一段视频出发，生成多个相机视角下的画面。在 iPad 上拖动，就能边播放边切换视角。</p>
+            </div>
+            <div class="tile-media media-169 reel" data-reel data-reel-label="示例 %1／%2">
+              <div class="reel-track">
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-multiview-ipad-poster.webp" width="1280" height="720" aria-label="一只手在播放电影片段的 iPad 上拖动，画面继续播放，相机视角随之绕着演员转动。">
+                    <source src="assets/media/demo-multiview-ipad.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-ipad-lalaland-poster.webp" width="1280" height="720" aria-label="黄昏山顶上的两位舞者，随着 iPad 上滑块移动，相机绕着他们转动。">
+                    <source src="assets/media/demo-mv-ipad-lalaland.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-ipad-joker-poster.webp" width="1280" height="720" aria-label="一位红西装男子在长长的户外台阶上起舞，视角左右扫动。">
+                    <source src="assets/media/demo-mv-ipad-joker.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-ipad-friends-poster.webp" width="1280" height="720" aria-label="厨房里两人交谈，相机从其中一人身后转到另一人的侧面。">
+                    <source src="assets/media/demo-mv-ipad-friends.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-ipad-grandpa-poster.webp" width="1280" height="720" aria-label="一位老人在桌边向男孩讲话，相机在两人肩后的视角之间移动。">
+                    <source src="assets/media/demo-mv-ipad-grandpa.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="reel-dots"></div>
+              <button class="video-toggle" type="button" aria-label="暂停视频" data-label-pause="暂停视频" data-label-play="播放视频" data-video-toggle><i class="ph ph-pause" aria-hidden="true"></i></button>
+            </div>
+          </article>
+
+          <article class="tile tile-half tile-demo" data-reveal>
+            <div class="tile-copy">
+              <p class="tile-meta">Apple · 2026</p>
+              <h3 class="tile-title">流式视频重构图</h3>
+              <p class="tile-sub">为实时视频流更换机位。一个四步因果模型，在浏览器里处理任意视频。</p>
+            </div>
+            <div class="tile-media media-169 reel" data-reel data-reel-label="示例 %1／%2">
+              <div class="reel-track">
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-streaming-reframe-poster.webp" width="1280" height="720" aria-label="浏览器里播放着一段 YouTube 访谈，拖动相机即可实时环绕两位讲者并重新构图。">
+                    <source src="assets/media/demo-streaming-reframe.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-stream-dario-poster.webp" width="1280" height="720" aria-label="浏览器中实时重构图的电视访谈，相机围绕一位戴眼镜、正在讲话的男子缓缓移动。">
+                    <source src="assets/media/demo-stream-dario.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-stream-jensen-poster.webp" width="1280" height="720" aria-label="实时重构图的播客访谈，相机环绕一位坐在麦克风前、身穿皮夹克的男子。">
+                    <source src="assets/media/demo-stream-jensen.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-stream-atlas-poster.webp" width="1280" height="720" aria-label="实时重构图的四人产品直播，相机在沙发上的一行人之间平移。">
+                    <source src="assets/media/demo-stream-atlas.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="reel-dots"></div>
+              <button class="video-toggle" type="button" aria-label="暂停视频" data-label-pause="暂停视频" data-label-play="播放视频" data-video-toggle><i class="ph ph-pause" aria-hidden="true"></i></button>
+            </div>
+          </article>
+
+          <article class="tile tile-half tile-demo" data-reveal>
+            <div class="tile-copy">
+              <p class="tile-meta">Apple · 2026</p>
+              <h3 class="tile-title">Vision Pro 上的多视角</h3>
+              <p class="tile-sub">同样的多视角视频，在 Apple Vision Pro 上以立体窗口呈现，可以绕着看。</p>
+            </div>
+            <div class="tile-media media-169 reel" data-reel data-reel-label="示例 %1／%2">
+              <div class="reel-track">
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-multiview-visionpro-poster.webp" width="1280" height="720" aria-label="在 Apple Vision Pro 上，一段电影画面像窗口一样悬浮在沙漠景色中，视角随手势变化。">
+                    <source src="assets/media/demo-multiview-visionpro.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-vp-joker-poster.webp" width="1280" height="720" aria-label="在 Apple Vision Pro 上，台阶起舞的一幕悬浮在沙漠上方，视角随手势转动。">
+                    <source src="assets/media/demo-mv-vp-joker.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-vp-karate-poster.webp" width="1280" height="720" aria-label="在 Apple Vision Pro 上，道场里的空手道学员以窗口形式悬浮，画面转动露出房间的纵深。">
+                    <source src="assets/media/demo-mv-vp-karate.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="reel-slide">
+                  <video muted playsinline preload="none" poster="assets/media/demo-mv-vp-gym-poster.webp" width="1280" height="720" aria-label="在 Apple Vision Pro 上，一幕体育馆场景悬浮在辽阔天空下的沙漠上方，从不断变化的角度观看。">
+                    <source src="assets/media/demo-mv-vp-gym.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="reel-dots"></div>
+              <button class="video-toggle" type="button" aria-label="暂停视频" data-label-pause="暂停视频" data-label-play="播放视频" data-video-toggle><i class="ph ph-pause" aria-hidden="true"></i></button>
             </div>
           </article>
         </div>
